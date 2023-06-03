@@ -1,15 +1,15 @@
-import django_filters.rest_framework as filter
+import django_filters
 from .models import Race
 
-class RaceFilter(filter.FilterSet):
-    date = filter.DateFromToRangeFilter(field_name="date")
-    track = filter.CharFilter(field_name= "track", lookup_expr='iexact')
-    surface = filter.CharFilter(field_name="surface", lookup_expr='iexact')
-    distance = filter.CharFilter(field_name="distance", lookup_expr='iexact')
-    condition = filter.CharFilter(field_name="condition", lookup_expr='iexact')
-    fieldSize_lt = filter.NumberFilter(field_name="fieldSize", lookup_expr="lt")
-    fieldSize_gt = filter.NumberFilter(field_name="fieldSize", lookup_expr="gt")
-    maidens = filter.BooleanFilter(field_name="maidens")
+class RaceFilter(django_filters.FilterSet):
+    date = django_filters.DateFromToRangeFilter(field_name="date")
+    track = django_filters.CharFilter(field_name= "track", lookup_expr='iexact')
+    surface = django_filters.CharFilter(field_name="surface", lookup_expr='iexact')
+    distance = django_filters.CharFilter(field_name="distance", lookup_expr='iexact')
+    condition = django_filters.CharFilter(field_name="condition", lookup_expr='iexact')
+    fieldSize_lt = django_filters.NumberFilter(field_name="fieldSize", lookup_expr="lt")
+    fieldSize_gt = django_filters.NumberFilter(field_name="fieldSize", lookup_expr="gt")
+    maidens = django_filters.BooleanFilter(field_name="maidens")
 
     class Meta:
         model = Race

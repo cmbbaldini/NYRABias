@@ -9,7 +9,7 @@ from rest_framework.decorators import permission_classes
 
 @api_view(["GET"])
 def raceGet(request, format=None):
-    raceFilter = RaceFilter(request.data, queryset=Race.objects.all())
+    raceFilter = RaceFilter(request.GET, queryset=Race.objects.all())
     serializer = RaceSerializer(raceFilter.qs, many=True)
     return Response(serializer.data)
     
