@@ -90,11 +90,11 @@ function handleQueryStrings(elemName, elemValue){
             }
             return {}
         case 'fieldSize':
-            if (elemValue === 7){
+            if (elemValue === '7'){
                 elemName = 'fieldSize_gt'
                 return {elemName, elemValue}
             }
-            else if (elemValue === 8){
+            else if (elemValue === '8'){
                 elemName = 'fieldSize_lt'
                 return {elemName, elemValue}
             }
