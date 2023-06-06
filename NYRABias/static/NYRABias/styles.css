@@ -1,0 +1,121 @@
+body {
+    background-image: url("sar.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+    h1 {
+    color: rgb(255, 255, 255);
+    font-family: "Kuunari Bold", monospace;
+    font-weight: bold;
+    font-size: 64px;
+    text-align: center;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    height: 175px;
+    margin-bottom: 100px;
+    }
+
+    .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    }
+
+    .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    }
+
+    .form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .form-item {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    width: 180px;
+    }
+
+    .output{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    margin-bottom: 100px;
+    }
+
+    .output-item{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    width: 180px;
+    }
+
+    label {
+    color: rgb(255, 255, 255);
+    font-family: 'Rooney', monospace;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    }
+
+    input[type="date"], input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    select{
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    color: rgb(0,0,0);
+    font-family: 'Rooney', monospace;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Rooney', monospace;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #ff6600;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+
+    .search-button:hover {
+    background-color: #ff8800;
+    }
+    
+    .highlight{
+        display: inline-block;
+        color: #ffffff;
+        background-color: #24242460;
+        opacity: .9;
+    }
