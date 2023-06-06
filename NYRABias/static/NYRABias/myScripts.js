@@ -85,27 +85,25 @@ function handleFormSubmit(event) {
 function handleQueryStrings(elemName, elemValue){
     switch (elemName) {
         case 'condition':
-            if (elemValue === 'All'){
-                return {}
+            if (elemValue !== 'All'){
+                return {elemName, elemValue} 
             }
-            else {
-                return {elemName, elemValue}
-            }
+            return {}
         case 'fieldSize':
-            if (elemValue === 'All'){
-                return {}
+            if (elemValue === 7){
+                elemName = 'fieldSize_gt'
+                return {elemName, elemValue}
             }
             else if (elemValue === 8){
-                let elemName = 'fieldSize_lt'
+                elemName = 'fieldSize_lt'
                 return {elemName, elemValue}
             }
+            return {}
         case 'maidens':
-            if (elemValue === 'All'){
-                return {}
-            }
-            else {
+            if (elemValue !== 'All'){
                 return {elemName, elemValue}
             }
+            return {}
         default:
             return {elemName, elemValue}
       }
