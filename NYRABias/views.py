@@ -6,6 +6,11 @@ from rest_framework import status
 from .filters import RaceFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
+from django.shortcuts import render
+
+def UIView(request):
+    return render(request, 'NYRABias/index.html')
+
 
 @api_view(["GET"])
 def raceGet(request, format=None):
