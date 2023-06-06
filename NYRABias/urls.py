@@ -29,7 +29,8 @@ urlpatterns = [
     path('get/', views.raceGet),
     path('post/', views.racePost),
     path('<date:mydate>/<str:track>/<int:raceNumber>/', views.raceUpdateDel),
-    path('api-token-auth/', obtain_auth_token, name='api_token_auth')
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+    path('', views.UIView)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
