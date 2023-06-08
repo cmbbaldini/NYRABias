@@ -37,17 +37,19 @@ function handleFormSubmit(event) {
         if (element.name === 'call'){
             callFS = element.value
         }
-        if (element.name === 'condition'){
-          names = handleConditionString(element.name, element.value, surface)
-        }
-        else {
-          if (element.name === 'surface'){
-            surface = element.value
+        else{
+          if (element.name === 'condition'){
+            names = handleConditionString(element.name, element.value, surface)
           }
-          names = handleQueryStrings(element.name, element.value)
-        }
-        if (Object.keys(names).length !== 0){
-          queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
+          else {
+            if (element.name === 'surface'){
+              surface = element.value
+            }
+            names = handleQueryStrings(element.name, element.value)
+          }
+          if (Object.keys(names).length !== 0){
+            queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
+          }
         }
       }
     }
