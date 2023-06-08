@@ -44,9 +44,9 @@ function handleFormSubmit(event) {
           if (element.name === 'condition'){
             names = handleConditionString(element.name, element.value, surface)
           }
-          else{
-            names = handleQueryStrings(element.name, element.value)
-          }
+          // else{
+          //   names = handleQueryStrings(element.name, element.value)
+          // }
           if (Object.keys(names).length !== 0){
               queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
           }
