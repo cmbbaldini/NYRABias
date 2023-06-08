@@ -118,10 +118,10 @@ function handleConditionString(elemName, elemValue, surface){
     else if (elemValue === 'Off'){
       elemName = 'condition_neg';
       if (surface === 'Dirt'){
-        elemValue = 'Fast';
+        elemValue = surface;
       }
       else{
-        elemValue = 'Firm';
+        elemValue = surface;
       }
       return {elemName, elemValue}
     }
