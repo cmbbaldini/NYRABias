@@ -7,7 +7,7 @@ class RaceFilter(filters.FilterSet):
     surface = filters.CharFilter(field_name="surface", lookup_expr='iexact')
     distance = filters.CharFilter(field_name="distance", lookup_expr='iexact')
     condition = filters.CharFilter(field_name="condition", lookup_expr='iexact')
-    condition_neg = filters.CharFilter(field_name="condition_neg", exclude=True)
+    condition_neg = filters.CharFilter(field_name="condition", exclude=True)
     fieldSize_lt = filters.NumberFilter(field_name="fieldSize", lookup_expr="lt")
     fieldSize_gt = filters.NumberFilter(field_name="fieldSize", lookup_expr="gt")
     maidens = filters.BooleanFilter(field_name="maidens")
