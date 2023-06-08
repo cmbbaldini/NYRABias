@@ -125,6 +125,7 @@ function handleConditionString(elemName, elemValue, surface){
       }
       return {elemName, elemValue}
     }
+    return {}
 }
 
 function handleResponse(response, callFS) {
