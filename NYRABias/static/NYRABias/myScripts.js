@@ -25,8 +25,10 @@ function handleFormSubmit(event) {
     var formElements = document.getElementById('raceParams').elements; // Get all form elements
     
     // Create a query string with the form data
-    var queryString = '';
-    var callFS = ''
+    var queryString = '',
+        callFS = '', 
+        surface = '', 
+        names = '';
     
     // Loop through each form element
     for (var i = 0; i < formElements.length; ++i) {
@@ -34,15 +36,20 @@ function handleFormSubmit(event) {
       if (element.type !== 'submit') {
         if (element.name === 'call'){
             callFS = element.value
-            console.log(callFS)
         }
         else {
-            let names = handleQueryStrings(element.name, element.value)
-            if (Object.keys(names).length !== 0){
-                queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
-                console.log(names.elemName)
-                console.log(names.elemValue)
-            }
+          if (element.name === 'surface'){
+            surface = element.value
+          }
+          if (element.name === 'condition'){
+            names = handleConditionString(element.name, element.value, surface)
+          }
+          else{
+            names = handleQueryStrings(element.name, element.value)
+          }
+          if (Object.keys(names).length !== 0){
+              queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
+          }
         }
       }
     }
@@ -84,29 +91,40 @@ function handleFormSubmit(event) {
 
 function handleQueryStrings(elemName, elemValue){
     switch (elemName) {
-        case 'condition':
-            if (elemValue !== 'All'){
-                return {elemName, elemValue} 
-            }
-            return {}
-        case 'fieldSize':
-            if (elemValue === '7'){
-                elemName = 'fieldSize_gt'
-                return {elemName, elemValue}
-            }
-            else if (elemValue === '8'){
-                elemName = 'fieldSize_lt'
-                return {elemName, elemValue}
-            }
-            return {}
-        case 'maidens':
-            if (elemValue !== 'All'){
-                return {elemName, elemValue}
-            }
-            return {}
-        default:
+      case 'fieldSize':
+        if (elemValue === '7'){
+            elemName = 'fieldSize_gt';
             return {elemName, elemValue}
+        }
+        else if (elemValue === '8'){
+            elemName = 'fieldSize_lt';
+            return {elemName, elemValue}
+        }
+        return {}
+      case 'maidens':
+        if (elemValue !== 'All'){
+            return {elemName, elemValue}
+        }
+        return {}
+      default:
+        return {elemName, elemValue}
+    }
+}
+
+function handleConditionString(elemName, elemValue, surface){
+    if (elemValue === 'Fast' || 'Firm'){
+      return {elemName, elemValue} 
+    }
+    else if (elemValue === 'Off'){
+      elemName = 'condition_neg';
+      if (surface === 'Dirt'){
+        elemValue = 'Fast';
       }
+      else{
+        elemValue = 'Firm';
+      }
+      return {elemName, elemValue}
+    }
 }
 
 function handleResponse(response, callFS) {
@@ -133,4 +151,5 @@ function handleResponse(response, callFS) {
       }
     } 
     return {lead, withinTwo, twoToSix, sixPlus};
-  }
+}
+
