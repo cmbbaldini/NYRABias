@@ -37,19 +37,17 @@ function handleFormSubmit(event) {
         if (element.name === 'call'){
             callFS = element.value
         }
+        if (element.name === 'condition'){
+          names = handleConditionString(element.name, element.value, surface)
+        }
         else {
           if (element.name === 'surface'){
             surface = element.value
           }
-          if (element.name === 'condition'){
-            names = handleConditionString(element.name, element.value, surface)
-          }
-          // else{
-          //   names = handleQueryStrings(element.name, element.value)
-          // }
-          if (Object.keys(names).length !== 0){
-              queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
-          }
+          names = handleQueryStrings(element.name, element.value)
+        }
+        if (Object.keys(names).length !== 0){
+          queryString += names.elemName + '=' + names.elemValue + '&'; // Add the element's name and value to the query string
         }
       }
     }
@@ -118,10 +116,10 @@ function handleConditionString(elemName, elemValue, surface){
     else if (elemValue === 'Off'){
       elemName = 'condition_neg';
       if (surface === 'Dirt'){
-        elemValue = surface;
+        elemValue = 'Fast';
       }
       else{
-        elemValue = surface;
+        elemValue = 'Firm';
       }
       return {elemName, elemValue}
     }
