@@ -33,11 +33,10 @@ function handleFormSubmit(event) {
     // Loop through each form element
     for (var i = 0; i < formElements.length; ++i) {
       var element = formElements[i];
-      if (element.type !== 'submit') {
-        if (element.name === 'call'){
-            callFS = element.value
-        }
-        else{
+      if (element.name === 'call'){
+        callFS = element.value
+      }
+      else if (element.type !== 'submit') {
           if (element.name === 'condition'){
             names = handleConditionString(element.name, element.value, surface)
           }
@@ -52,8 +51,6 @@ function handleFormSubmit(event) {
           }
         }
       }
-    }
-    
     // Create a new XMLHttpRequest object
     var xhr = new XMLHttpRequest();
     
