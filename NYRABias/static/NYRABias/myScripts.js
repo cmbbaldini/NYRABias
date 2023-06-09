@@ -35,7 +35,7 @@ function handleFormSubmit(event) {
       if (element.name === 'call') {
           callFS = element.value
       } else if (element.type !== 'submit') {
-          if (element.name === 'condition') {
+          if (element.name == 'condition') {
               names = handleConditionString(element.name, element.value, surface)
           } else {
               if (element.name === 'surface') {
@@ -116,7 +116,7 @@ function handleQueryStrings(elemName, elemValue) {
 }
 
 function handleConditionString(elemName, elemValue, surface) {
-  if (elemValue === 'Fast' || 'Firm') {
+  if (elemValue === 'Fast' || elemValue === 'Firm') {
       return {
           elemName,
           elemValue
