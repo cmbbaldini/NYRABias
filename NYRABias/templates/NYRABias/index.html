@@ -1,134 +1,146 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
     <title>NYRA BIAS</title>
     <link rel="stylesheet" type="text/css" href="{% static 'NYRABias/styles.css' %}">
     <script type="text/javascript" src="{% static 'NYRABias/myScripts.js' %}"></script>
-    </head>
-    
-    <body>
-        <h1>NYRA BIAS</h1>
-        <div class="main">
-            <form id="raceParams">
-                {% csrf_token %}
-                <div class="form-container">
-                    <div class="form-item">
-                    <label for="start-date"><span class="highlight">Start Date</span></label>
-                    <input type="date" id="start-date" name="date_after" value="2021-01-01">
-                    </div>
-
-                    <div class="form-item">
-                    <label for="end-date"><span class="highlight">End Date</span></label>
-                    <input type="date" id="end-date" name="date_before" value="2024-01-01">
-                    </div>
-
-                    <div class="form-item">
-                    <label for="track"><span class="highlight">Track</span></label>
-                    <select id="track" name="track" required>
-                        <option value="Aqueduct">Aqueduct</option>
-                        <option value="BelmontPark">Belmont</option>
-                        <option value="Saratoga">Saratoga</option>
-                    </select>
-                    </div>
-
-                    <div class="form-item">
-                    <label for="distance"><span class="highlight">Distance</span></label>
-                    <select id="distance" name="distance" required>
-                        <option value="5 Furlongs">5 Furlongs</option>
-                        <option value="5 1/2 Furlongs">5 1/2 Furlongs</option>
-                        <option value="6 Furlongs">6 Furlongs</option>
-                        <option value="6 1/2 Furlongs">6 1/2 Furlongs</option>
-                        <option value="7 Furlongs">7 Furlongs</option>
-                        <option value="7 1/2 Furlongs">7 1/2 Furlongs</option>
-                        <option value="1 Mile">1 Mile</option>
-                        <option value="1 1/16 Miles">1 1/16 Miles</option>
-                        <option value="1 1/8 Miles">1 1/8 Miles</option>
-                        <option value="1 3/16 Miles">1 3/16 Miles</option>
-                        <option value="1 1/4 Miles">1 1/4 Miles</option>
-                        <option value="1 5/16 Miles">1 5/16 Miles</option>
-                        <option value="1 3/8 Miles">1 3/8 Miles</option>
-                        <option value="1 1/2 Miles">1 1/2 Miles</option>
-                        <option value="1 5/8 Miles">1 5/8 Miles</option>
-                        <option value="1 3/4 Miles">1 3/4 Miles</option>
-                    </select>
-                    </div>
-
-                    <div class="form-item">
-                    <label for="surface"><span class="highlight">Surface</span></label>
-                    <select id="surface" name="surface" required onchange="updateConditionOptions()">
-                        <option value="Dirt">Dirt</option>
-                        <option value="Turf">OuterTurf</option>
-                        <option value="Innerturf">InnerTurf</option>
-                    </select>
-                    </div>
-
-                    <div class="form-item">
-                    <label for="condition"><span class="highlight">Condition</span></label>
-                    <select id="condition" name="condition" required>
-                        <option value="Any">Any</option>
-                        <option value="Fast">Fast</option>
-                        <option value="Off">Good-Sloppy</option>
-                        
-                    </select>
-                    </div>
-
-                    <div class="form-item">
-                    <label for="field-size"><span class="highlight">Field Size</span></label>
-                    <select id="field-size" name="fieldSize" required>
-                        <option value="Any">Any</option>
-                        <option value="8">&lt8</option>
-                        <option value="7">8+</option>
-                    </select>
-                    </div>
-
-                    <div class="form-item">
-                    <label for="maidens"><span class="highlight">Maidens/Winners</span></label>
-                    <select id="maidens" name="maidens" required>
-                        <option value="All">Both</option>
-                        <option value="True">Maidens</option>
-                        <option value="False">Winners</option>
-                    </select>
-                    </div>
-
-                    <div class="form-item">
-                        <label for="call"><span class="highlight">Call</span></label>
-                        <select id="call" name="call" required>
-                        <option value="firstCall">First</option>
-                        <option value="secondCall">Second</option>
-                        </select>
-                    </div>
-                </div>
-                
-                
-                <div class="button">
-                    <input type="submit" value="Search" class="search-button">
-                </div>
-            </form>  
+  </head>
+  <body>
+    <h1>NYRA BIAS</h1>
+    <div class="main">
+      <form id="raceParams"> {% csrf_token %} <div class="highlight-section">
+          <div class="form-container">
+            <div class="form-item">
+              <label for="start-date">
+                <span class="highlight">Start Date</span>
+              </label>
+              <input type="date" id="start-date" name="date_after" value="2021-01-01">
+            </div>
+            <div class="form-item">
+              <label for="end-date">
+                <span class="highlight">End Date</span>
+              </label>
+              <input type="date" id="end-date" name="date_before" value="2024-01-01">
+            </div>
+            <div class="form-item">
+              <label for="track">
+                <span class="highlight">Track</span>
+              </label>
+              <select id="track" name="track" required>
+                <option value="Aqueduct">Aqueduct</option>
+                <option value="BelmontPark">Belmont</option>
+                <option value="Saratoga">Saratoga</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="distance">
+                <span class="highlight">Distance</span>
+              </label>
+              <select id="distance" name="distance" required>
+                <option value="5 Furlongs">5 Furlongs</option>
+                <option value="5 1/2 Furlongs">5 1/2 Furlongs</option>
+                <option value="6 Furlongs">6 Furlongs</option>
+                <option value="6 1/2 Furlongs">6 1/2 Furlongs</option>
+                <option value="7 Furlongs">7 Furlongs</option>
+                <option value="7 1/2 Furlongs">7 1/2 Furlongs</option>
+                <option value="1 Mile">1 Mile</option>
+                <option value="1 1/16 Miles">1 1/16 Miles</option>
+                <option value="1 1/8 Miles">1 1/8 Miles</option>
+                <option value="1 3/16 Miles">1 3/16 Miles</option>
+                <option value="1 1/4 Miles">1 1/4 Miles</option>
+                <option value="1 5/16 Miles">1 5/16 Miles</option>
+                <option value="1 3/8 Miles">1 3/8 Miles</option>
+                <option value="1 1/2 Miles">1 1/2 Miles</option>
+                <option value="1 5/8 Miles">1 5/8 Miles</option>
+                <option value="1 3/4 Miles">1 3/4 Miles</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="surface">
+                <span class="highlight">Surface</span>
+              </label>
+              <select id="surface" name="surface" required onchange="updateConditionOptions()">
+                <option value="Dirt">Dirt</option>
+                <option value="Turf">OuterTurf</option>
+                <option value="Innerturf">InnerTurf</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="condition">
+                <span class="highlight">Condition</span>
+              </label>
+              <select id="condition" name="condition" required>
+                <option value="Any">Any</option>
+                <option value="Fast">Fast</option>
+                <option value="Off">Good-Sloppy</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="field-size">
+                <span class="highlight">Field Size</span>
+              </label>
+              <select id="field-size" name="fieldSize" required>
+                <option value="Any">Any</option>
+                <option value="8">&lt8</option>
+                <option value="7">8+</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="maidens">
+                <span class="highlight">Maidens/Winners</span>
+              </label>
+              <select id="maidens" name="maidens" required>
+                <option value="All">Both</option>
+                <option value="True">Maidens</option>
+                <option value="False">Winners</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="call">
+                <span class="highlight">Call</span>
+              </label>
+              <select id="call" name="call" required>
+                <option value="firstCall">First</option>
+                <option value="secondCall">Second</option>
+              </select>
+            </div>
+          </div>
         </div>
-
-        <div class="output">
-            <div class="output-item">
-                <label for="lead"><span class="highlight">Lead/Within Neck</span></label>
-                <input type="text" id="lead" placeholder="0" readonly>
-            </div>
-
-            <div class="output-item">
-                <label for="withinTwo"><span class="highlight">2nd/3rd/Within 2</span></label>
-                <input type="text" id="withinTwo" placeholder="0" readonly>
-            </div>
-
-            <div class="output-item">
-                <label for="twotoSix"><span class="highlight">2 - 6</span></label>
-                <input type="text" id="twoToSix" placeholder="0" readonly>
-            </div>
-
-            <div class="output-item">
-                <label for="sixPlus"><span class="highlight">Over 6</span></label>
-                <input type="text" id="sixPlus" placeholder="0" readonly>
-            </div>
+        <div class="button">
+          <input type="submit" value="Search" class="search-button">
         </div>
-    </body>
-      
+      </form>
+    </div>
+    <div class="output">
+      <div class="highlight-section">
+        <div class="output-container">
+          <div class="output-item">
+            <label for="lead">
+              <span class="highlight">Lead/Within Neck</span>
+            </label>
+            <input type="text" id="lead" placeholder="0" readonly>
+          </div>
+          <div class="output-item">
+            <label for="withinTwo">
+              <span class="highlight">2nd/3rd/Within 2</span>
+            </label>
+            <input type="text" id="withinTwo" placeholder="0" readonly>
+          </div>
+          <div class="output-item">
+            <label for="twotoSix">
+              <span class="highlight">2 - 6</span>
+            </label>
+            <input type="text" id="twoToSix" placeholder="0" readonly>
+          </div>
+          <div class="output-item">
+            <label for="sixPlus">
+              <span class="highlight">Over 6</span>
+            </label>
+            <input type="text" id="sixPlus" placeholder="0" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
