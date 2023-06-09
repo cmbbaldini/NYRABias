@@ -8,13 +8,15 @@ function updateConditionOptions() {
 
   // Add new options based on the selected value of the first select
   if (selectedValue === "Dirt") {
+      condition.innerHTML += '<option value="Any">Any</option>';
       condition.innerHTML += '<option value="Fast">Fast</option>';
-      condition.innerHTML += '<option value="Off">Off</option>';
-      condition.innerHTML += '<option value="All">All</option>';
-  } else if (selectedValue === "Turf" || "Innerturf") {
+      condition.innerHTML += '<option value="Off">Good-Sloppy</option>';
+      
+  } else {
+      condition.innerHTML += '<option value="Any">Any</option>';
       condition.innerHTML += '<option value="Firm">Firm</option>';
-      condition.innerHTML += '<option value="Off">Off</option>';
-      condition.innerHTML += '<option value="All">All</option>';
+      condition.innerHTML += '<option value="Off">Good-Yielding</option>';
+      
   }
 }
 
@@ -35,7 +37,7 @@ function handleFormSubmit(event) {
       if (element.name === 'call') {
           callFS = element.value
       } else if (element.type !== 'submit') {
-          if (element.name == 'condition') {
+          if (element.name === 'condition') {
               names = handleConditionString(element.name, element.value, surface)
           } else {
               if (element.name === 'surface') {
