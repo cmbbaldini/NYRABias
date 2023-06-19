@@ -92,7 +92,8 @@ function handleFormSubmit(event) {
 			// Update the input fields with the new values
 			document.getElementById('lead').value = response.lead;
 			document.getElementById('withinTwo').value = response.withinTwo;
-			document.getElementById('twoToSix').value = response.twoToSix;
+			document.getElementById('twoToFour').value = response.twoToFour;
+			document.getElementById('fourToSix').value = response.fourToSix;
 			document.getElementById('sixPlus').value = response.sixPlus;
 		} else {
 			// Handle the error response
