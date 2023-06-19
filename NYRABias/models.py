@@ -12,8 +12,8 @@ class Race(models.Model):
     maidens = models.BooleanField(default=False)
     firstCall = models.IntegerField(default=0)
     secondCall = models.IntegerField(default=0)
-    firstCallLengthsBehind = models.DecimalField(default=0)
-    secondCallLengthsBehind = models.DecimalField(default=0)
+    firstCallLengthsBehind = models.FloatField(default=0)
+    secondCallLengthsBehind = models.FloatField(default=0)
 
     def __str__(self):
         return "{} {} {}".format(self.date, self.track, self.raceNumber)
