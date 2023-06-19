@@ -10,8 +10,8 @@ class Race(models.Model):
     condition = models.CharField(max_length=25)
     fieldSize = models.IntegerField(default=0)
     maidens = models.BooleanField(default=False)
-    firstCallPosition = models.IntegerField(default=0)
-    secondCallPosition = models.IntegerField(default=0)
+    firstCall = models.IntegerField(default=0)
+    secondCall = models.IntegerField(default=0)
     firstCallLengthsBehind = models.IntegerField(default=0)
     secondCallLengthsBehind = models.IntegerField(default=0)
 
