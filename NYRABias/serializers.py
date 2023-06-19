@@ -5,4 +5,5 @@ class RaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Race
         fields = ['date', 'track', 'raceNumber', 'surface', 'distance', 
-                  'condition', 'fieldSize', 'maidens', 'firstCall', 'secondCall']
+                  'condition', 'fieldSize', 'maidens', 'firstCall', 'secondCall',
+                  'firstCallLengthsBehind', 'secondCallLengthsBehind']
