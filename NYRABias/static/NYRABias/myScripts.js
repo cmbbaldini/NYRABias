@@ -160,30 +160,32 @@ function handleConditionString(elemName, elemValue, surface) {
 function handleResponse(response, callFS) {
 	let lead = 0,
 		withinTwo = 0,
-		twoToSix = 0,
+		twoToFour = 0,
+		fourToSix = 0,
 		sixPlus = 0;
+	
+	let lengthsBehind = callFS + "LengthsBehind"
 
 	for (var i = 0; i < response.length; ++i) {
 		var race = response[i];
-		switch (race[callFS]) {
-			case 1:
-				++lead;
-				break;
-			case 2:
-				++withinTwo;
-				break;
-			case 3:
-				++twoToSix;
-				break;
-			default:
-				++sixPlus;
-				break;
+		
+		if (race[lengthsBehind] < 0.5){
+			++lead;
+		} else if (race[lengthsBehind] < 2 || race[callFS] <= 3){
+			++withinTwo
+		} else if (race[lengthsBehind] < 4){
+			++twoToFour
+		} else if (race[lengthsBehind] < 6){
+			++ fourToSix
+		} else{
+			++sixPlus
 		}
 	}
 	return {
 		lead,
 		withinTwo,
-		twoToSix,
+		twoToFour,
+		fourToSix,
 		sixPlus
 	};
 }
