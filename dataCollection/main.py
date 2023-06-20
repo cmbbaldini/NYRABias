@@ -24,16 +24,15 @@ def main(pathObj):
 
 
 if __name__ == '__main__':
-    # downloadChart()  # download current day's Equibase chart
-    sourceFolder = Path("C:\\Users\\Eagle\\Charts\\NewChart")
+    downloadChart()  # download current day's Equibase chart
+    sourceFolder = Path("C:\\Users\\User\\Charts\\NewChart")
     for sourceFile in sourceFolder.iterdir():
         chartData = main(sourceFile)
 
         # rename and move the downloaded charts into the correct directory corresponding to the track and year
         if chartData is not None:
-            destinationFolder = f"C:\\Users\\Eagle\\Charts\\{chartData.track}\\{chartData.track[:3] + chartData.date[:4]}"
+            destinationFolder = f"C:\\Users\\User\\Charts\\{chartData.track}\\{chartData.track[:3] + chartData.date[:4]}"
             sourceFile = renameFiles(sourceFile, chartData.date)
             moveFiles(sourceFile, destinationFolder)
         else:
             sourceFile.unlink()  # delete file if it contains no data
-            
