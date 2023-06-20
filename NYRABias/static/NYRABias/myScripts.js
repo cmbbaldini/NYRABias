@@ -27,6 +27,15 @@ function updateConditionOptions() {
 	}
 }
 
+function updateStartDate() {
+	var startDate = document.getElementById("start-date");
+	var endDate = document.getElementById("end-date");
+
+	if (new Date(endDate.value) < new Date(startDate.value)) {
+		startDate.value = endDate.value;
+	}
+}
+
 function addFlashEffect() {
 	var searchButton = document.querySelector('.search-button');
 	var outputItem = document.querySelector('.output-container');
