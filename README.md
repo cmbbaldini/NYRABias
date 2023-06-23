@@ -27,7 +27,7 @@
 ### Landing Page
 Currently working for all tracks and dates from Jan '21 on, but will be updated to add 10 years of data soon.
 
-<img src="docs/_media/NYRA_UI_image.png" alt="UI_image">
+<img src="docs/_media/NYRA_UI_image.PNG" alt="UI_image">
 
 
 <!-- ### Example Equibase Chart
