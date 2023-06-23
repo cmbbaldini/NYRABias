@@ -39,6 +39,18 @@ The WebApp is compatible with common web browsers.
 
 
 ## Usage
+UI can be used for most general track bias searches.  
+
+Get requests can also be made via...  
+<img src="docs/_media/get_url.PNG" alt="get_request_url" height='60'>  
+Get requests can be submitted using the following filters...  
+<img src="docs/_media//nyra_filter_params.PNG" alt="filter_params" height='200'>  
+A sample get query with filters might look like this...  
+<img src="docs/_media/sample_get_query.PNG" alt="sample_get_query">
+Raw JSON data will be returned in this form...  
+<img src="docs/_media/sample_json_data.PNG" alt="sample_json_data" height="250">
+
+
 
 
 ## License
