@@ -45,6 +45,9 @@ The WebApp is compatible with common web browsers.
 ## Usage
 
 
+## License
+[Apache-2.0](LICENSE)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [Python-url]: https://www.python.org/
 [Python.io]: https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white
