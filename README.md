@@ -27,7 +27,7 @@
 ### Landing Page
 Currently working for all tracks and dates from Jan '21 on, but will be updated to add 10 years of data soon.
 
-<img src="docs/_media/NYRA_UI_image.PNG" alt="UI_image">
+<img src="docs/_media/NYRA_UI_image.png" alt="UI_image">
 
 
 <!-- ### Example Equibase Chart
@@ -42,13 +42,13 @@ The WebApp is compatible with common web browsers.
 UI can be used for most general track bias searches.  
 
 Get requests can also be made via...  
-<img src="docs/_media/get_url.PNG" alt="get_request_url" height='60'>  
+<img src="docs/_media/get_url.png" alt="get_request_url" height='60'>  
 Get requests can be submitted using the following filters...  
-<img src="docs/_media//nyra_filter_params.PNG" alt="filter_params" height='200'>  
+<img src="docs/_media//nyra_filter_params.png" alt="filter_params" height='200'>  
 A sample get query with filters might look like this...  
-<img src="docs/_media/sample_get_query.PNG" alt="sample_get_query">
+<img src="docs/_media/sample_get_query.png" alt="sample_get_query">
 Raw JSON data will be returned in this form...  
-<img src="docs/_media/sample_json_data.PNG" alt="sample_json_data" height="250">
+<img src="docs/_media/sample_json_data.png" alt="sample_json_data" height="250">
 
 
 
