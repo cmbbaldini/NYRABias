@@ -30,10 +30,6 @@ Currently working for all tracks and dates from Jan '21 on, but will be updated 
 <img src="docs/_media/NYRA_UI_image.PNG" alt="UI_image">
 
 
-## Demo
-<video src="docs/_media/nyrabias_video.mp4" alt="demo_video">
-
-
 <!-- ### Example Equibase Chart
 <img src='docs/_media/example_chart.png' alt="Equibase Chart"> -->
 
