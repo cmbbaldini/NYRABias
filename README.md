@@ -1,8 +1,8 @@
-<div style="text-align:center;">
+<div align="center">
   <img src="docs/_media/horse_icon.png" alt="Saratoga Oval">
 </div>
 
-<h1 style="text-align:center;">NYRA Bias</h1>
+<h1 align="center">NYRA Bias</h1>
 
 ## WebApp
 <table>
@@ -39,7 +39,7 @@ site demo
 
 
 ## Compatability
-The WebApp is compatible with the most common web browsers.
+The WebApp is compatible with common web browsers.
 
 
 ## Usage
