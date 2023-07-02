@@ -53,7 +53,13 @@ def getSurfaceDistance(race: list, raceDetail: dict, i: int) -> bool:
     surface = race[i - 1][race[i - 1].index('OnThe') + 5:]
     if '-' in surface:
         surface = surface.split('-')[0]
-    raceDetail['surface'] = surface
+    if raceDetail['track'] == "Aqueduct" and surface in {"Turf", "Outerturf"}:
+        if surface == "Turf":
+            raceDetail['surface'] = "Inner" + surface.lower()
+        else:
+            raceDetail['surface'] = "Turf"
+    else:
+        raceDetail['surface'] = surface
     distance = (race[i - 1][:race[i - 1].index('OnThe')]).removeprefix('About')
     raceDetail['distance'] = distances.get(distance) or distanceExceptions.get(distance)
     return distance in distanceExceptions
