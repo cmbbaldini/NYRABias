@@ -144,13 +144,13 @@ def extractRaceData(race: list) -> dict:
             de.getTrackDateRace(race, raceDetail)
             if de.getMaidensCancelled(race[3], raceDetail):
                 return {}  # return no data if race is canceled
-        elif 'FieldSize' not in raceDetail and val == 'Trainers:':
+        elif 'fieldSize' not in raceDetail and val == 'Trainers:':
             de.getFieldSize(race, raceDetail, i)
-        elif 'Surface' not in raceDetail and val == "CurrentTrackRecord:":
+        elif 'surface' not in raceDetail and val in {"CurrentTrackRecord:", "Purse:"}:
             if de.filterHurdles(race, i):  #
                 return {}  # return no data if race is for hurdlers
             tenFurlongsPlus = de.getSurfaceDistance(race, raceDetail, i)
-        elif 'TrackCondition' not in raceDetail and val == 'Track:':
+        elif 'condition' not in raceDetail and val == 'Track:':
             de.getTrackCondition(race, raceDetail, i)
         elif bool(re.match(findRunningLines, val)):
 
