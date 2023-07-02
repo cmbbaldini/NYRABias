@@ -5,6 +5,44 @@ function initializeForm() {
 // Initialize the form when the page is ready
 document.addEventListener('DOMContentLoaded', initializeForm);
 
+function addFlashEffect() {
+	var searchButton = document.querySelector('.search-button');
+	var outputItem = document.querySelector('.output-container');
+
+	searchButton.addEventListener('click', function() {
+		// Add the flash-effect class
+		searchButton.classList.add('flash-effect');
+		outputItem.classList.add('flash-effect');
+
+		// Remove the flash-effect class after 300 milliseconds (0.3 seconds)
+		setTimeout(function() {
+			searchButton.classList.remove('flash-effect');
+			outputItem.classList.remove('flash-effect');
+		}, 400);
+	});
+}
+
+// Run addFlashEffect() when DOM content is loaded
+document.addEventListener('DOMContentLoaded', addFlashEffect);
+
+function setTodaysDate() {
+	var today = new Date();
+	
+	// Format today's date as yyyy-mm-dd
+	var year = today.getFullYear();
+	var month = String(today.getMonth() + 1).padStart(2, '0');
+	var day = String(today.getDate()).padStart(2, '0');
+	var formattedDate = year + '-' + month + '-' + day;
+	
+	// Set the value of the date input
+	var dateInput = document.getElementById('end-date');
+	dateInput.value = formattedDate;
+  }
+  
+  // Run setTodaysDate() when DOM content is loaded
+  document.addEventListener('DOMContentLoaded', setTodaysDate);
+  
+
 function updateConditionOptions() {
 	var surface = document.getElementById("surface");
 	var condition = document.getElementById("condition");
@@ -35,25 +73,6 @@ function updateStartDate() {
 		startDate.value = endDate.value;
 	}
 }
-
-function addFlashEffect() {
-	var searchButton = document.querySelector('.search-button');
-	var outputItem = document.querySelector('.output-container');
-
-	searchButton.addEventListener('click', function() {
-		// Add the flash-effect class
-		searchButton.classList.add('flash-effect');
-		outputItem.classList.add('flash-effect');
-
-		// Remove the flash-effect class after 300 milliseconds (0.3 seconds)
-		setTimeout(function() {
-			searchButton.classList.remove('flash-effect');
-			outputItem.classList.remove('flash-effect');
-		}, 400);
-	});
-}
-
-document.addEventListener('DOMContentLoaded', addFlashEffect);
 
 function handleFormSubmit(event) {
 	event.preventDefault(); // Prevent the form from submitting normally
